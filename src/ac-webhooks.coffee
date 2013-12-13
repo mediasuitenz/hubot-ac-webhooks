@@ -17,5 +17,5 @@
 #   digitalsadhu
 module.exports = (robot) ->
 
-  robot.respond /test/i, (msg) ->
-    msg.send ""
+  robot.router.get "/hubot/ac-webhooks", (req, res) ->
+    robot.send "ac webhooks url hit!"
