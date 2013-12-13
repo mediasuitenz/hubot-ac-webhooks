@@ -1,0 +1,38 @@
+{
+  "name": "hubot-ac-webhooks",
+  "description": "A hubot script to listen for active collab hooks",
+  "version": "1.0.1",
+  "author": "Richard Walker <digitalsadhu@gmail.com>",
+  "license": "MIT",
+
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mediasuitenz/hubot-ac-webhooks.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/mediasuitenz/hubot-ac-webhooks/issues"
+  },
+
+  "dependencies": {
+    "coffee-script": "~1.6"
+  },
+
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "sinon-chai": "*",
+    "sinon": "*"
+  },
+
+  "main": "index.coffee",
+
+  "scripts": {
+    "test": "script/test"
+  }
+}
