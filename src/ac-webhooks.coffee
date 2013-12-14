@@ -17,5 +17,9 @@
 #   digitalsadhu
 module.exports = (robot) ->
 
-  robot.router.get "/hubot/ac-webhooks", (req, res) ->
-    robot.send "ac webhooks url hit!"
+  robot.router.post "/hubot/ac-webhooks", (req, res) ->
+    console.log req.body
+    user = {}
+    user.room = process.env['HUBOT_CAMPFIRE_ROOMS'].split(',')[0]
+    robot.send user, 'ac webhooks url hit!'
+    res.end '{"success":true}'
