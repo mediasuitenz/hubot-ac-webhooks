@@ -21,6 +21,10 @@ ac = require('node-activecollab').init process.env.AC_API_URL, process.env.AC_AP
 module.exports = (robot) ->
 
   robot.router.post "/hubot/ac-webhooks", (req, res) ->
+
+    ac.apiUrl.check (state) ->
+        console.log state
+
     data = JSON.parse req.body['data']
     console.log data
     data = data['data']
