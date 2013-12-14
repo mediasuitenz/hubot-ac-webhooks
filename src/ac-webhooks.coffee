@@ -37,7 +37,7 @@ module.exports = (robot) ->
     taskName = timeRecord['task_name']
     
     taskMessage = ''
-    if typeof taskName != undefined then taskMessage = 'task ' + taskName + ' for '
+    if typeof taskName != 'undefined' then taskMessage = 'task ' + taskName + ' for the '
 
     message = userName + ' logged ' + time + ' ' + billableStatus + ' hours against the ' + 
       taskMessage + 'project ' + projectName + ' with the description ' + summary
