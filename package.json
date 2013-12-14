@@ -20,9 +20,9 @@
   },
 
   "dependencies": {
-    "coffee-script": "~1.6"
+    "coffee-script": "~1.6",
+    "node-activecollab": "git://github.com/mediasuitenz/node-activecollab.git",
   },
-
   "devDependencies": {
     "mocha": "*",
     "chai": "*",

@@ -15,6 +15,9 @@
 #
 # Author:
 #   digitalsadhu
+
+ac = require('node-activecollab').init process.env.AC_API_URL, process.env.AC_API_KEY
+
 module.exports = (robot) ->
 
   robot.router.post "/hubot/ac-webhooks", (req, res) ->
@@ -31,9 +34,13 @@ module.exports = (robot) ->
     projectType = timeRecord['parent_type']
     jobTypeId = timeRecord['job_type_id']
     summary = timeRecord['summary']
-    projectId = timeRecord['parent_id']
+    parentId = timeRecord['parent_id']
     
     user = {}
     user.room = process.env['HUBOT_CAMPFIRE_ROOMS'].split(',')[0]
-    robot.send user, userName + ' logged ' + time + ' ' + billableStatus + ' hours against ' + projectType + ' ' + projectId + ' (' + summary + ')'
-    res.end '{"success":true}'
+
+    ac.project parentId, (project) ->
+        robot.send user, userName + ' logged ' + time + ' ' + billableStatus + ' hours against ' + projectType + ' ' + project['name'] + ' (' + summary + ')'
+        res.end '{"success":true}'
+
+
